@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClientQu">
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="329dp"
+        android:layout_height="71dp"
+        android:text="حدد النشويات التي تريد أن تكون موجودة في خطتك الغذائية"
+        android:textAlignment="center"
+        android:textColor="#0C0C0C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.121" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ClientQuiz">
+
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="430dp"
+            android:layout_height="807dp"
+            app:srcCompat="@drawable/gre"
+            tools:layout_editor_absoluteX="-35dp"
+            tools:layout_editor_absoluteY="-64dp" />
+
+        <ImageView
+            android:id="@+id/imageView16"
+            android:layout_width="110dp"
+            android:layout_height="90dp"
+            app:srcCompat="@drawable/rais"
+            tools:layout_editor_absoluteX="194dp"
+            tools:layout_editor_absoluteY="244dp" />
+
+        <ImageView
+            android:id="@+id/imageView19"
+            android:layout_width="110dp"
+            android:layout_height="88dp"
+            app:srcCompat="@drawable/pasta"
+            tools:layout_editor_absoluteX="56dp"
+            tools:layout_editor_absoluteY="244dp" />
+
+        <ImageView
+            android:id="@+id/imageView20"
+            android:layout_width="109dp"
+            android:layout_height="92dp"
+            app:srcCompat="@drawable/bre"
+            tools:layout_editor_absoluteX="129dp"
+            tools:layout_editor_absoluteY="368dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
