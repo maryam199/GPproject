@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
-        <activity android:name=".ClintQui"></activity>
+        <activity android:name=".ClientOption"></activity>
+        <activity android:name=".ClintQui" />
         <activity android:name=".ClientQuiz" />
         <activity android:name=".RegisterScreen">
             <intent-filter>
