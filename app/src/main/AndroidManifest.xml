@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
-        <activity android:name=".ClientZ"></activity>
+        <activity android:name=".QuizCompletion"></activity>
+        <activity android:name=".ClientZ" />
         <activity android:name=".ClientQ" />
         <activity android:name=".ClientQu" />
         <activity android:name=".WeightLess" />
