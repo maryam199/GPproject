@@ -4,24 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizCompletion">
+    tools:context=".Attenttion">
 
     <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="396dp"
-        android:layout_height="693dp"
+        android:id="@+id/imageView28"
+        android:layout_width="413dp"
+        android:layout_height="704dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/finsh" />
+        app:srcCompat="@drawable/tnb" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/button9"
         android:layout_width="224dp"
         android:layout_height="110dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="30dp"
         android:background="#FFFFFF"
         android:text="التالي"
         android:textColor="#4CAF50"
@@ -33,5 +35,5 @@
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.745" />
+        app:layout_constraintVertical_bias="0.736" />
 </androidx.constraintlayout.widget.ConstraintLayout>
