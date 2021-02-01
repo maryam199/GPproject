@@ -18,14 +18,13 @@ public class ClientOption extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openQuize1();
+               openPupU();
             }
         });
     }
 
-    public void openQuize1(){
-        Intent intent = new Intent(this, ClientQuiz.class);
-        startActivity(intent);
-
+    private void openPupU(){
+        Intent pop = new Intent(this, Pop.class);
+        startActivity(pop);
     }
 }

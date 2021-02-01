@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
-        <activity android:name=".Attenttion"></activity>
+        <activity android:name=".Pop"></activity>
+        <activity android:name=".Attenttion" />
         <activity android:name=".QuizCompletion" />
         <activity android:name=".ClientZ" />
         <activity android:name=".ClientQ" />
@@ -18,6 +19,7 @@
         <activity android:name=".ClientOption" />
         <activity android:name=".ClintQui" />
         <activity android:name=".ClientQuiz" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".RegisterScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
         <activity android:name=".Check" />
         <activity android:name=".UserOption" />
         <activity android:name=".DieticianOption" />

@@ -7,14 +7,12 @@
     tools:context=".ClientOption">
 
 
-
-
-
         <Button
             android:id="@+id/button10"
             android:layout_width="247dp"
             android:layout_height="53dp"
             android:text="انقاص الوزن"
+            android:textSize="18sp"
             app:backgroundTint="#F2009688"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +25,7 @@
             android:layout_width="247dp"
             android:layout_height="53dp"
             android:text="زيادة الوزن"
+            android:textSize="18sp"
             app:backgroundTint="#F2009688"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
