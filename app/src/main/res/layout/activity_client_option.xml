@@ -8,6 +8,7 @@
 
 
         <Button
+            android:onClick="ShowPopup"
             android:id="@+id/button10"
             android:layout_width="247dp"
             android:layout_height="53dp"
@@ -21,6 +22,7 @@
             app:layout_constraintVertical_bias="0.545" />
 
         <Button
+            android:onClick="ShowSecondPopup"
             android:id="@+id/button7"
             android:layout_width="247dp"
             android:layout_height="53dp"
