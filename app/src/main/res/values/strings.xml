@@ -9,4 +9,31 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="profile0">الحساب الشخصي</string>
+    <string name="profile1">اسم المستخدم</string>
+    <string name="profile2">الاسم</string>
+    <string name="profile3">كلمة المرور</string>
+    <string name="profile4">البريد الإلكتروني</string>
+
+    <string name="profile5">معلومات صحتي</string>
+    <string name="profile6">الوزن</string>
+    <string name="profile7">الطول</string>
+    <string name="profile">BMI</string>
+    <string name="profile8">الهدف</string>
+    <string name="profileButton">button</string>
+
+    <string name="scan">مسح الباركود</string>
+    <string name="scan1">مسح</string>
+    <string name="bmi">BMI</string>
+    <string name="name">Name</string>
+
+    <string name="dece">هل يوجد جزء من الخطة الغذائية لم يعجبك؟ لامسكلة اطلاقا ! فقط حدد ماهو من الخيارات الموجودة بالاسفل وسوف نقوم بعمل خطة جديدة لك لا تتضمنه.</string>
+    <string name="plan">إنشاء خطة بديلة</string>
+    <string name="r3">RadioButton</string>
+    <string name="r4">RadioButton</string>
+    <string name="r2">RadioButton</string>
+    <string name="r5">RadioButton</string>
+    <string name="r1">RadioButton</string>
+
 </resources>
