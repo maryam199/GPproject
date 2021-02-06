@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.loginscreen">
-    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
-        <activity android:name=".BarCode"></activity>
+        <activity android:name=".ActivityHomePage"></activity>
+        <activity android:name=".BarCode" />
         <activity android:name=".AlternativeDietPlanScreens" />
         <activity android:name=".ProfileScreen" />
         <activity android:name=".ScanBarCodeScreen" />

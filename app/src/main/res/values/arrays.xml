@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="id_activityScreenTitles">
+        <item></item>
+        <item>الرئيسية</item>
+        <item>حساب المستخدم</item>
+        <item>الخطة الكاملة</item>
+        <item>إنشاء خطة بديلة</item>
+        <item>وصفات صحية</item>
+        <item>مسح الباركود</item>
+        <item/>
+        <item>تسجيل الخروج</item>
+    </string-array>
+
+
+    <array name="id_activityScreenIcons">
+
+        <item>@drawable/close</item>
+        <item>@drawable/home</item>
+        <item>@drawable/profile</item>
+        <item>@drawable/complan</item>
+        <item>@drawable/altplan</item>
+        <item>@drawable/recipes</item>
+        <item>@drawable/scan</item>
+        <item>0</item>
+        <item>@drawable/logout</item>
+
+    </array>
+    
+</resources>
