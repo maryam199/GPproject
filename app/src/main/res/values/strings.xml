@@ -20,7 +20,7 @@
     <string name="profile6">الوزن</string>
     <string name="profile7">الطول</string>
     <string name="profile">BMI</string>
-    <string name="profile8">الهدف</string>
+    <string name="profile8">الهدف:</string>
     <string name="profileButton">button</string>
 
     <string name="scan">مسح الباركود</string>

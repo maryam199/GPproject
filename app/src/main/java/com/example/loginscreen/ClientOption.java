@@ -5,13 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class ClientOption extends AppCompatActivity {
     Dialog myDialog;
     Dialog secondDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,7 @@ public class ClientOption extends AppCompatActivity {
         myDialog = new Dialog(this);
         secondDialog = new Dialog(this);
     }
+
 
     public void ShowPopup(View v){
 
