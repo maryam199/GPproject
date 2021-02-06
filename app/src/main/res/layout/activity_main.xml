@@ -48,6 +48,7 @@
             android:layout_marginBottom="100dp"
             android:text="إنشاء حساب"
             android:textColor="#0C0C0C"
+            android:radius = "20dp"
             app:backgroundTint="#CC009688"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
             app:layout_constraintEnd_toEndOf="parent"
