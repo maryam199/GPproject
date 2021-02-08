@@ -36,10 +36,17 @@ public class RegisterScreen extends AppCompatActivity {
         userEmail = (EditText) findViewById(R.id.editTextTextEmailAddress);
         mAuth = FirebaseAuth.getInstance();
 
-        if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), HomeFragment.class));
-            finish();
-        }
+        //if (mAuth.getCurrentUser() != null) {
+          //  startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+          //  finish();
+        //}
+
+        buttont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openLogin();
+            }
+        });
 
         regUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,20 +61,9 @@ public class RegisterScreen extends AppCompatActivity {
                     return;
                 }
 
-                if (name.equals("")) {
-                    userName.setError("اسم المستخدم مطلوب!");
-                    userName.requestFocus();
-                    return;
-                }
 
                 if (Email.equals("")) {
                     userEmail.setError("البريد الإلكتروني مطلوب!");
-                    userEmail.requestFocus();
-                    return;
-                }
-
-                if (!Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
-                    userEmail.setError("الرجاء إخال بريد إلكتروني صحيح!");
                     userEmail.requestFocus();
                     return;
                 }
@@ -77,6 +73,20 @@ public class RegisterScreen extends AppCompatActivity {
                     passWord.requestFocus();
                     return;
                 }
+
+                if (name.equals("")) {
+                    userName.setError("اسم المستخدم مطلوب!");
+                    userName.requestFocus();
+                    return;
+                }
+
+                if (!Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
+                    userEmail.setError("الرجاء إخال بريد إلكتروني صحيح!");
+                    userEmail.requestFocus();
+                    return;
+                }
+
+
                 mAuth.createUserWithEmailAndPassword(Email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -94,6 +104,11 @@ public class RegisterScreen extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void openLogin(){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 
