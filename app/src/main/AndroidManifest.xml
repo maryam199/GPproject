@@ -36,7 +36,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Check" />
         <activity android:name=".UserOption" />
         <activity android:name=".DieticianOption" />
     </application>

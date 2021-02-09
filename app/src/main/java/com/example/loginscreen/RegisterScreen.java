@@ -114,7 +114,7 @@ public class RegisterScreen extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Toast.makeText(RegisterScreen.this, "تم إنشاء مستخدم بنجاح", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(), Check.class));
+                                    startActivity(new Intent(getApplicationContext(), UserOption.class));
                                 }
                             });
 
