@@ -14,6 +14,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
     private Button button, login;
@@ -67,10 +69,17 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(MainActivity.this, "تم تسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), ActivityHomePage.class));
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            if(user.isEmailVerified()){
+                                Toast.makeText(MainActivity.this, "تم تسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(), ActivityHomePage.class));
+                            }else{
+                                user.sendEmailVerification();
+                                Toast.makeText(MainActivity.this,"تحقق من بريدك الإلكتروني لتفعيل حسابك!", Toast.LENGTH_SHORT).show();
+                            }
+
                         }else{
-                            Toast.makeText(MainActivity.this,"خطأ"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,"خطأ"+ task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
