@@ -3,7 +3,7 @@
 <item>
 
     <shape android:shape="rectangle"
-        android:tint="@color/LightGreen"
+        android:tint="@color/lightGreen"
         >
         <size android:width="90dp"
             android:height="90dp"
