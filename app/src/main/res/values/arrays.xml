@@ -17,7 +17,7 @@
     <array name="id_activityScreenIcons">
 
         <item>@drawable/close</item>
-        <item>@drawable/home</item>
+        <item>@drawable/home2</item>
         <item>@drawable/profile</item>
         <item>@drawable/complan</item>
         <item>@drawable/altplan</item>
