@@ -44,7 +44,7 @@ public class ClientOption extends AppCompatActivity {
         secondDialog = new Dialog(this);
 
         img = findViewById(R.id.imageView34);
-        age = findViewById(R.id.editTextTextMultiLine2);
+        //age = findViewById(R.id.editTextTextMultiLine2);
         weight = findViewById(R.id.editTextTextMultiLine);
         height = findViewById(R.id.editTextTextMultiLine3);
         lose = findViewById(R.id.editTextTextPersonName);
@@ -55,7 +55,7 @@ public class ClientOption extends AppCompatActivity {
         databaseR = firebaseD.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information");
 
 
-        /* age.setOnClickListener(new View.OnClickListener() {
+        age.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                  Age = age.getText().toString().trim();
@@ -99,6 +99,11 @@ public class ClientOption extends AppCompatActivity {
             public void onClick(View v) {
                 losRgain = "انقاص الوزن";
                 Num = lose.getText().toString().trim();
+                Client info = new Client(Age,Weight,Height,losRgain,Num);
+
+                databaseR.setValue(info);
+
+                openClientQuiz();
             }
         });
 
@@ -107,20 +112,15 @@ public class ClientOption extends AppCompatActivity {
             public void onClick(View v) {
                 losRgain = "زيادة الوزن";
                 Num = gain.getText().toString().trim();
-            }
-        });
-
-
-       img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 Client info = new Client(Age,Weight,Height,losRgain,Num);
 
                 databaseR.setValue(info);
 
                 openClientQuiz();
             }
-        });*/
+        });
+
+
 
     }
 
