@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
+        <activity android:name=".DieticianPS"></activity>
+        <activity android:name=".DieticianHS" />
         <activity android:name=".ActivityHomePage" />
         <activity android:name=".BarCode" />
         <activity android:name=".AlternativeDietPlanScreens" />
