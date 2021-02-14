@@ -35,5 +35,7 @@
     <string name="r2">RadioButton</string>
     <string name="r5">RadioButton</string>
     <string name="r1">RadioButton</string>
+    <string name="stats">لك مزاج للطبخ؟! رائع لدينا بعض من الوصفات لأجلك</string>
+    <string name="fromdatabase">نستخرج المعلومات من الداتابيس</string>
 
 </resources>
