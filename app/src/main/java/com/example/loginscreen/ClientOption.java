@@ -28,12 +28,12 @@ public class ClientOption extends AppCompatActivity {
     private EditText age, weight, height, lose, gain;
     private ImageView img;
     private Button button, button2;
-     DatabaseReference databaseR;
-     FirebaseDatabase firebaseD;
+    DatabaseReference databaseR;
+    FirebaseDatabase firebaseD;
     String losRgain = "";
     String Num = "";
 
-    String Age, Weight, Height;
+   String Age, Weight, Height;
 
 
     @Override
@@ -44,7 +44,7 @@ public class ClientOption extends AppCompatActivity {
         secondDialog = new Dialog(this);
 
         img = findViewById(R.id.imageView34);
-        //age = findViewById(R.id.editTextTextMultiLine2);
+        age = findViewById(R.id.editTextTextMultiLine2);
         weight = findViewById(R.id.editTextTextMultiLine);
         height = findViewById(R.id.editTextTextMultiLine3);
         lose = findViewById(R.id.editTextTextPersonName);
@@ -140,6 +140,5 @@ public class ClientOption extends AppCompatActivity {
         secondDialog.setContentView(R.layout.pop);
         secondDialog.show();
     }
-
 
 }
