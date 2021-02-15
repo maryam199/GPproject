@@ -6,18 +6,12 @@
 
     <application
         android:allowBackup="true"
-        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="nav"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
-        <activity android:name=".DisplyRecipScerrn"></activity>
-        <activity android:name=".DisplayRecipeScreen" />
-        <activity android:name=".CompleteDietPlanScreen2" />
-        <activity android:name=".EndOfDietPlanScreen" />
-        <activity android:name=".CompleteDietPlanScreen" />
-        <activity android:name=".AlternativeDietPlanCompletionScreen" />
+        <activity android:name=".ActivityHomePage" />
         <activity android:name=".BarCode" />
         <activity android:name=".AlternativeDietPlanScreens" />
         <activity android:name=".ProfileScreen" />
