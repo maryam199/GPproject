@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AlternativeDietPlanScreens"
+    android:background="@drawable/textview_border2">
+
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="عزيزي المستخدم،"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+android:layout_marginBottom="100dp"        >
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="يبدو أن خطتك الغذائية قد انتهت !"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/text1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        >
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="هل تريد خطة غذائية جديدة ؟"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+       app:layout_constraintTop_toBottomOf="@id/text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </TextView>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="نعم"
+        android:background="#40bfff"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/text3"
+        app:layout_constraintEnd_toEndOf="@id/text3"
+android:layout_marginTop="30dp"
+        >
+
+    </Button>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="لا"
+        android:background="#40bfff"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/text3"
+        app:layout_constraintStart_toStartOf="@id/text3"
+        android:layout_marginTop="30dp"
+        >
+
+    </Button>
+</androidx.constraintlayout.widget.ConstraintLayout>

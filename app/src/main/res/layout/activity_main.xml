@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="39dp"
             android:layout_marginBottom="16dp"
-            android:text="اسم المستخدم"
+            android:text="البريد الإلكتروني"
             android:textColor="#0C0C0C"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
             app:layout_constraintEnd_toEndOf="parent"
