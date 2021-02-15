@@ -176,3 +176,280 @@ public class ProfileActivity extends AppCompatActivity {
     }
 }
  */
+
+
+/*
+package com.couchbase.userprofile.profile;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.couchbase.lite.Blob;
+import com.couchbase.userprofile.R;
+import com.couchbase.userprofile.login.LoginActivity;
+import com.couchbase.userprofile.util.DatabaseManager;
+
+import org.w3c.dom.Text;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+
+public class UserProfileActivity extends AppCompatActivity implements UserProfileContract.View {
+
+    private UserProfileContract.UserActionsListener mActionListener;
+
+    EditText nameInput;
+    EditText emailInput;
+    EditText addressInput;
+    ImageView imageView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_user_profile);
+
+        nameInput = findViewById(R.id.nameInput);
+        emailInput = findViewById(R.id.emailInput);
+        addressInput = findViewById(R.id.addressInput);
+        imageView = findViewById(R.id.imageView);
+
+        mActionListener = new UserProfilePresenter(this);
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mActionListener.fetchProfile();
+            }
+        });
+    }
+
+    public static final int PICK_IMAGE = 1;
+
+    public void onUploadPhotoTapped(View view) {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == PICK_IMAGE && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+                Uri selectedImage = data.getData();
+
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                    imageView.setImageBitmap(bitmap);
+                } catch (IOException ex) {
+                    Log.i("SelectPhoto", ex.getMessage());
+                }
+            }
+        }
+    }
+
+    public void onLogoutTapped(View view) {
+        DatabaseManager.getSharedInstance().closeDatabaseForUser();
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
+
+    public void onSaveTapped(View view) {
+        // tag::userprofile[]
+        Map<String, Object> profile = new HashMap<>();
+        profile.put("name", nameInput.getText().toString());
+        profile.put("email", emailInput.getText().toString());
+        profile.put("address", addressInput.getText().toString());
+
+        byte[] imageViewBytes = getImageViewBytes();
+
+        if (imageViewBytes != null) {
+            profile.put("imageData", new com.couchbase.lite.Blob("image/jpeg", imageViewBytes));
+        }
+        // end::userprofile[]
+
+        mActionListener.saveProfile(profile);
+
+        Toast.makeText(this, "Successfully updated profile!", Toast.LENGTH_SHORT).show();
+    }
+
+    private byte[] getImageViewBytes() {
+        byte[] imageBytes = null;
+
+        BitmapDrawable bmDrawable = (BitmapDrawable) imageView.getDrawable();
+
+        if (bmDrawable != null) {
+            Bitmap bitmap = bmDrawable.getBitmap();
+
+            if (bitmap != null) {
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                imageBytes = baos.toByteArray();
+            }
+        }
+
+        return imageBytes;
+    }
+
+    @Override
+    public void showProfile(Map<String, Object> profile) {
+        nameInput.setText((String)profile.get("name"));
+        emailInput.setText((String)profile.get("email"));
+        addressInput.setText((String)profile.get("address"));
+
+        Blob imageBlob = (Blob)profile.get("imageData");
+
+        if (imageBlob != null) {
+            Drawable d = Drawable.createFromStream(imageBlob.getContentStream(), "res");
+            imageView.setImageDrawable(d);
+        }
+    }
+}
+
+ */
+
+/*
+
+public class Usermanager {
+
+
+    @Entity
+    @Table(name="USER")
+    public class User implements Serializable {
+
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
+        int iduser;
+        String username;
+        String password;
+        int idprofile;
+        int accountstatus;
+
+        public int getIduser() {
+            return iduser;
+        }
+        public void setIduser(int iduser) {
+            this.iduser = iduser;
+        }
+        public String getUsername() {
+            return username;
+        }
+        public void setUsername(String username) {
+            this.username = username;
+        }
+        public String getPassword() {
+            return password;
+        }
+        public void setPassword(String password) {
+            this.password = password;
+        }
+        public int getIdprofile() {
+            return idprofile;
+        }
+        public void setIdprofile(int idprofile) {
+            this.idprofile = idprofile;
+        }
+        public int getAccountstatus() {
+            return accountstatus;
+        }
+        public void setAccountstatus(int accountstatus) {
+            this.accountstatus = accountstatus;
+        }
+
+    }
+
+    @Entity
+    @Table(name="PROFILE")
+    public class Profile implements Serializable {
+        @Id
+        @GeneratedValue(strategy=GenerationType.AUTO)
+        int idprofile;
+        String nomprofile;
+        String prenprofile;
+        String mailprofile;
+        String adressprofile;
+        int phoneprofile;
+        Date datenaissanceprofile;
+        char sexeuser;
+        String imagepath;
+
+        public int getIdprofile() {
+            return idprofile;
+        }
+        public void setIdprofile(int idprofile) {
+            this.idprofile = idprofile;
+        }
+        public String getNomprofile() {
+            return nomprofile;
+        }
+        public void setNomprofile(String nomprofile) {
+            this.nomprofile = nomprofile;
+        }
+        public String getPrenprofile() {
+            return prenprofile;
+        }
+        public void setPrenprofile(String prenprofile) {
+            this.prenprofile = prenprofile;
+        }
+        public String getMailprofile() {
+            return mailprofile;
+        }
+        public void setMailprofile(String mailprofile) {
+            this.mailprofile = mailprofile;
+        }
+        public String getAdressprofile() {
+            return adressprofile;
+        }
+        public void setAdressprofile(String adressprofile) {
+            this.adressprofile = adressprofile;
+        }
+        public int getPhoneprofile() {
+            return phoneprofile;
+        }
+        public void setPhoneprofile(int phoneprofile) {
+            this.phoneprofile = phoneprofile;
+        }
+        public Date getDatenaissanceprofile() {
+            return datenaissanceprofile;
+        }
+        public void setDatenaissanceprofile(Date datenaissanceprofile) {
+            this.datenaissanceprofile = datenaissanceprofile;
+        }
+        public char getSexeuser() {
+            return sexeuser;
+        }
+        public void setSexeuser(char sexeuser) {
+            this.sexeuser = sexeuser;
+        }
+        public String getImagepath() {
+            return imagepath;
+        }
+        public void setImagepath(String imagepath) {
+            this.imagepath = imagepath;
+        }
+
+    }
+
+    //from profile where profile.idprofile=(select u.idprofile from User u where u.username = :username)
+ */

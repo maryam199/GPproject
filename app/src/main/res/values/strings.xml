@@ -37,5 +37,6 @@
     <string name="r1">RadioButton</string>
     <string name="stats">لك مزاج للطبخ؟! رائع لدينا بعض من الوصفات لأجلك</string>
     <string name="fromdatabase">نستخرج المعلومات من الداتابيس</string>
+    <string name="persomImage">TODO</string>
 
 </resources>
