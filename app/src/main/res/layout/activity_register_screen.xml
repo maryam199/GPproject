@@ -7,7 +7,9 @@
     android:background="@drawable/pic"
     tools:context=".RegisterScreen"
     tools:layout_editor_absoluteX="-61dp"
-    tools:layout_editor_absoluteY="0dp">
+    tools:layout_editor_absoluteY="0dp"
+
+    >
 
 
     <Button
@@ -16,12 +18,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="157dp"
         android:layout_marginEnd="158dp"
-        android:layout_marginBottom="74dp"
+        android:layout_marginBottom="44dp"
         android:text="إنشاء حساب"
         android:textColor="#0C0C0C"
         app:backgroundTint="#CC4CAF50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioButton" />
 
@@ -132,32 +135,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="1dp"
-        android:text="البريد الإلكتروني"
-        android:textColor="#0C0C0C"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.71"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="198dp"
-        android:layout_height="29dp"
-        android:layout_marginBottom="11dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/FradioButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
+    <!--
     <RadioButton
         android:id="@+id/FradioButton"
         android:layout_width="54dp"
@@ -183,6 +161,85 @@
         app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+    -->
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"
+        android:text="البريد الإلكتروني"
+        android:textColor="#0C0C0C"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="198dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <RadioGroup
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/rbutton"
+
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="500dp">
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="56dp"
+            android:layout_height="22dp"
+
+
+            android:layout_gravity="center"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="-61dp"
+
+
+            android:text="أنثى"
+            android:textColor="#0C0C0C"
+            app:layout_constraintBottom_toTopOf="@+id/rbutton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.374"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+            app:layout_constraintVertical_bias="0.794" />
+
+        <RadioButton
+            android:id="@+id/FradioButton1"
+            android:layout_width="56dp"
+            android:layout_height="22dp"
+
+
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginBottom="40dp"
+
+
+            android:text="ذكر"
+            android:textColor="#0C0C0C"
+            app:layout_constraintBottom_toTopOf="@+id/rbutton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.374"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
+            app:layout_constraintVertical_bias="0.794" />
+
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

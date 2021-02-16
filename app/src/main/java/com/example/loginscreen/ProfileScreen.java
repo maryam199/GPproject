@@ -1,10 +1,21 @@
 package com.example.loginscreen;
-
+/*
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.widget.TextView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 
 public class ProfileScreen extends AppCompatActivity {
+
+    private FirebaseUser User;
+    private DatabaseReference reference;
+    private String UserID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -12,7 +23,25 @@ public class ProfileScreen extends AppCompatActivity {
         setContentView(R.layout.activity_profile_screen);
 
     }
-}
+
+    user = FirebaseAuth.getInstance().getCurrentUser();
+    reference = FirebaseDatabase.getInstance().getReference("Users");
+    UserID = user.getUid();
+
+    final TextView textViewUserName = (TextView) findViewById(R.id.textView8);//اسم المستخدم
+    final TextView textViewName = (TextView) findViewById(R.id.textView9);//الاسم
+    final TextView textViewPassword = (TextView) findViewById(R.id.textView10);//كلمة المرور
+    final TextView textViewEmail = (TextView) findViewById(R.id.textView11);//البريد الالكتروني
+    final TextView textViewWidth = (TextView) findViewById(R.id.textView12);//الوزن
+    final TextView textViewHight = (TextView) findViewById(R.id.textView13);//الطول
+    final TextView textViewGoal = (TextView) findViewById(R.id.checkedTextView);//الهدف
+
+
+        reference.child(UserID).addListenerForSingleValueEvent(new ValueEventListener(){
+
+    }
+
+}*/
 /*package com.example.profilescreen;
 
 import androidx.appcompat.app.AppCompatActivity;

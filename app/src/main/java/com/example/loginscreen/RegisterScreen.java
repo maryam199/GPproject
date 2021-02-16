@@ -1,5 +1,6 @@
 package com.example.loginscreen;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,9 +10,11 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,13 +23,14 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.regex.Pattern;
+
+import static com.example.loginscreen.ScanBarCodeScreen.text;
 
 public class RegisterScreen extends AppCompatActivity {
     private Button buttont, regUser;
     private EditText userName, passWord, userEmail;
-    RadioButton radioGenderMale, radioGenderFemale;
+    RadioButton radioGenderMale, radioGenderFemale ;
     String gender = "";
     FirebaseAuth mAuth;
     DatabaseReference databaseReference;
@@ -40,25 +44,22 @@ public class RegisterScreen extends AppCompatActivity {
         userName = (EditText) findViewById(R.id.editTextTextPersonName2);
         passWord = (EditText) findViewById(R.id.editTextTextPassword);
         userEmail = (EditText) findViewById(R.id.editTextTextEmailAddress);
-        radioGenderMale = (RadioButton) findViewById(R.id.FradioButton);
-        radioGenderFemale = (RadioButton) findViewById(R.id.radioButton);
+
+        radioGenderMale = (RadioButton) findViewById(R.id.FradioButton1);
+        radioGenderFemale = (RadioButton) findViewById(R.id.radioButton2);
+
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
 
-        //if (mAuth.getCurrentUser() != null) {
-          //  startActivity(new Intent(getApplicationContext(), HomeFragment.class));
-          //  finish();
-        //}
 
-        buttont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openLogin();
-            }
-        });
+       // if (mAuth.getCurrentUser() != null) {
+          //  startActivity(new Intent(getApplicationContext(), HomeFragment.class));
+         //   finish();
+      //  }
 
         regUser.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
                 String name = userName.getText().toString().trim();
                 String password = passWord.getText().toString().trim();
@@ -66,27 +67,15 @@ public class RegisterScreen extends AppCompatActivity {
 
                 if(radioGenderMale.isChecked()){
                     gender = "ذكر";
+                    Toast.makeText(RegisterScreen.this, "", Toast.LENGTH_SHORT).show();
+                }else if(radioGenderFemale.isChecked()){
+                    gender = "انثى";
+                    Toast.makeText(RegisterScreen.this, "", Toast.LENGTH_SHORT).show();
                 }
 
-                if(radioGenderFemale.isChecked()){
-                    gender = "انثى";
-                }
 
                 if (password.equals("")) {
                     passWord.setError("كلمة المرور مطلوبه!");
-                    passWord.requestFocus();
-                    return;
-                }
-
-
-                if (Email.equals("")) {
-                    userEmail.setError("البريد الإلكتروني مطلوب!");
-                    userEmail.requestFocus();
-                    return;
-                }
-
-                if (password.length() < 6) {
-                    passWord.setError("يجب ان لا تقل كلمة المرور عن 6 رموز!");
                     passWord.requestFocus();
                     return;
                 }
@@ -97,13 +86,23 @@ public class RegisterScreen extends AppCompatActivity {
                     return;
                 }
 
+                if (Email.equals("")) {
+                    userEmail.setError("البريد الإلكتروني مطلوب!");
+                    userEmail.requestFocus();
+                    return;
+                }
+
                 if (!Patterns.EMAIL_ADDRESS.matcher(Email).matches()) {
                     userEmail.setError("الرجاء إخال بريد إلكتروني صحيح!");
                     userEmail.requestFocus();
                     return;
                 }
 
-
+                if (password.length() < 6) {
+                    passWord.setError("يجب ان لا تقل كلمة المرور عن 6 رموز!");
+                    passWord.requestFocus();
+                    return;
+                }
                 mAuth.createUserWithEmailAndPassword(Email,password).addOnCompleteListener(RegisterScreen.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -131,10 +130,6 @@ public class RegisterScreen extends AppCompatActivity {
 
     }
 
-    public void openLogin(){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-    }
 
 
 }
