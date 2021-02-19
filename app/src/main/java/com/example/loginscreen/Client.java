@@ -5,7 +5,7 @@ public class Client{
     String age, loseORgain, height, weight, number;
 
 
-    public Client(){
+    public Client(String age, String weight, String height){
 
     }
 
@@ -36,5 +36,25 @@ public class Client{
 
     public void setWeight(String weight) {
         this.weight = weight;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public String getLoseORgain() {
+        return loseORgain;
+    }
+
+    public String getHeight() {
+        return height;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public String getNumber() {
+        return number;
     }
 }

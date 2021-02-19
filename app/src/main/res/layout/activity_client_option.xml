@@ -11,7 +11,7 @@
             android:id="@+id/button10"
             android:layout_width="247dp"
             android:layout_height="53dp"
-            android:onClick="ShowPopup"
+
             android:text="انقاص الوزن"
             android:textSize="18sp"
             app:backgroundTint="#F2009688"
@@ -25,7 +25,7 @@
             android:id="@+id/button7"
             android:layout_width="247dp"
             android:layout_height="53dp"
-            android:onClick="ShowSecondPopup"
+
             android:text="زيادة الوزن"
             android:textSize="18sp"
             app:backgroundTint="#F2009688"

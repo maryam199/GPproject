@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="200dp"
+    android:background="@drawable/hily">
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="115dp"
+        android:inputType="textPersonName"/>
+
+</LinearLayout>
