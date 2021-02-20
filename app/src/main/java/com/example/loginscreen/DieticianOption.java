@@ -87,6 +87,7 @@ public class DieticianOption extends AppCompatActivity {
                                    public void onSuccess(Void aVoid) {
 
                                        Toast.makeText(DieticianOption.this,"تم التحميل بنجاح",Toast.LENGTH_SHORT).show();
+                                       startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
 
                                    }
