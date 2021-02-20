@@ -65,13 +65,22 @@ public class RegisterScreen extends AppCompatActivity {
                 String password = passWord.getText().toString().trim();
                 String Email = userEmail.getText().toString().trim();
 
-                if(radioGenderMale.isChecked()){
+               if(radioGenderMale.isChecked()){
                     gender = "ذكر";
                     Toast.makeText(RegisterScreen.this, "", Toast.LENGTH_SHORT).show();
                 }else if(radioGenderFemale.isChecked()){
                     gender = "انثى";
                     Toast.makeText(RegisterScreen.this, "", Toast.LENGTH_SHORT).show();
                 }
+
+
+              /*  if(radioGenderMale.isChecked()){
+                    gender = "ذكر";
+                    Toast.makeText(RegisterScreen.this, "", Toast.LENGTH_SHORT).show();
+                }else if(radioGenderFemale.isChecked()){
+                    gender = "انثى";
+                    Toast.makeText(RegisterScreen.this, "", Toast.LENGTH_SHORT).show();
+                }*/
 
 
                 if (password.equals("")) {

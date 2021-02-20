@@ -36,9 +36,9 @@ public class ClientOption extends AppCompatActivity implements View.OnClickListe
     String losRgain = "";
     String Num = "";
 
-   String Age, Weight, Height;
+    String Age, Weight, Height;
 
-   @Override
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_option);
@@ -52,145 +52,35 @@ public class ClientOption extends AppCompatActivity implements View.OnClickListe
         button = findViewById(R.id.button10);//loose
         button2 = findViewById(R.id.button7);
 
-       button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-               firebaseD = FirebaseDatabase.getInstance();
-               databaseR = firebaseD.getReference("information");
+                firebaseD = FirebaseDatabase.getInstance();
+                databaseR = firebaseD.getReference("information");
 
-               //get all the values:age wiegt hight
+                //get all the values:age wiegt hight
 
-               String Age = age.getText().toString();
-               String Weight = weight.getText().toString();
-               String Height = height.getText().toString();
+                String Age = age.getText().toString();
+                String Weight = weight.getText().toString();
+                String Height = height.getText().toString();
 
 
-               Client client = new Client(Age,Weight,Height);
+                Client client = new Client(Age, Weight, Height);
 
-               //.child unique value
-               databaseR.child(String.valueOf(age)).setValue(client);
-           }
-       });
+                //.child unique value
+                databaseR.child(String.valueOf(age)).setValue(client);
+            }
+        });
 
-       button.setOnClickListener(this);
+        button.setOnClickListener(this);
 
     }//end onCreate
 
     @Override
     public void onClick(View view) {
 
-       Intent intent = new Intent(ClientOption.this,ClientOptionWeightLoss.class);
-startActivity(intent);
-    }
-
-
-  /*
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_client_option);
-        myDialog = new Dialog(this);
-        secondDialog = new Dialog(this);
-
-        img = findViewById(R.id.imageView34);
-        age = findViewById(R.id.editTextTextMultiLine2);
-        weight = findViewById(R.id.editTextTextMultiLine);
-        height = findViewById(R.id.editTextTextMultiLine3);
-        lose = findViewById(R.id.editTextTextPersonName);
-        gain = findViewById(R.id.editTextTextPersonName3);
-        button = findViewById(R.id.button10);
-        button2 = findViewById(R.id.button7);
-        firebaseD = FirebaseDatabase.getInstance();
-        databaseR = firebaseD.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information");
-
-
-        age.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                 Age = age.getText().toString().trim();
-                if (Age.equals("")) {
-                    age.setError("الرجاء إدخال عمرك!");
-                    age.requestFocus();
-                    return;
-                }
-            }
-        });
-
-
-         weight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Weight = weight.getText().toString().trim();
-               if (Weight.equals("")) {
-                    weight.setError("الرجاء إدخال وزنك!");
-                    weight.requestFocus();
-                    return;
-                }
-
-            }
-        });
-
-        height.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Height = height.getText().toString().trim();
-               if (Height.equals("")) {
-                    height.setError("الرجاء إدخال طولك!");
-                    height.requestFocus();
-                    return;
-                }
-
-            }
-        });
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                losRgain = "انقاص الوزن";
-                Num = lose.getText().toString().trim();
-                Client info = new Client(Age,Weight,Height,losRgain,Num);
-
-                databaseR.setValue(info);
-
-                openClientQuiz();
-            }
-        });
-
-       button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                losRgain = "زيادة الوزن";
-                Num = gain.getText().toString().trim();
-                Client info = new Client(Age,Weight,Height,losRgain,Num);
-
-                databaseR.setValue(info);
-
-                openClientQuiz();
-            }
-        });
-
-
-
-    }
-
-    public void openClientQuiz(){
-        Intent intent = new Intent(this, ClientQuiz.class);
+        Intent intent = new Intent(ClientOption.this, ClientOptionWeightLoss.class);
         startActivity(intent);
     }
-
-
-    public void ShowPopup(View v){
-
-        myDialog.setContentView(R.layout.popup);
-        myDialog.show();
-    }
-
-    public void ShowSecondPopup(View v){
-        secondDialog.setContentView(R.layout.pop);
-        secondDialog.show();
-    }
-
-   // */
-
 }

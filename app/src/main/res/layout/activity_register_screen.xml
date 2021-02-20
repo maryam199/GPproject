@@ -135,33 +135,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--
-    <RadioButton
-        android:id="@+id/FradioButton"
-        android:layout_width="54dp"
-        android:layout_height="22dp"
-        android:layout_marginBottom="35dp"
-        android:text="ذكر"
-        android:textColor="#0C0C0C"
-        app:layout_constraintBottom_toTopOf="@+id/rbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.63"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="56dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="10dp"
-        android:text="أنثى"
-        android:textColor="#0C0C0C"
-        app:layout_constraintBottom_toTopOf="@+id/rbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
-    -->
 
     <TextView
         android:id="@+id/textView"
