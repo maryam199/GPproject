@@ -127,9 +127,17 @@ public class RegisterScreen extends AppCompatActivity {
 
             }
         });
-
+        buttont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAC();
+            }
+        });
     }
 
-
+public void openAC(){
+    Intent intent = new Intent(this, MainActivity.class);
+    startActivity(intent);
+}
 
 }
