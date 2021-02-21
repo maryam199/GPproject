@@ -46,8 +46,6 @@ public class DieticianOption extends AppCompatActivity {
 
         //image = (ImageView) findViewById(R.id.imageView33);
         //button = (Button) findViewById(R.id.button4);
-
-
     }
 
     //private void openSin(){
@@ -58,11 +56,12 @@ public class DieticianOption extends AppCompatActivity {
 
 
     public void UploadData(View view) {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_GET_CONTENT);
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*");
         startActivityForResult(intent,ImageBack);
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
