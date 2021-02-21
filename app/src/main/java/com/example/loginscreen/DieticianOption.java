@@ -78,7 +78,7 @@ public class DieticianOption extends AppCompatActivity {
                        Imagename.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                            @Override
                            public void onSuccess(Uri uri) {
-                               DatabaseReference imagestore = FirebaseDatabase.getInstance().getReference("User").child("Image");
+                               DatabaseReference imagestore = FirebaseDatabase.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Image");
                                HashMap<String,String> hashMap = new HashMap<>();
                                hashMap.put("imageurl", String.valueOf(uri));
                                imagestore.setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
