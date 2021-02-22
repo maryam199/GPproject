@@ -5,8 +5,11 @@ public class Client{
     String age, loseORgain, height, weight, number;
 
 
-    public Client(String age, String weight, String height){
-
+    public Client(String age, String weight, String height, String loseORgain){
+        this.age = age;
+        this.weight = weight;
+        this.height = height;
+        this.loseORgain = loseORgain;
     }
 
     public Client(String age, String weight, String height, String loseORgain, String number){

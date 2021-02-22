@@ -52,11 +52,6 @@ public class RegisterScreen extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference("User");
 
 
-       // if (mAuth.getCurrentUser() != null) {
-          //  startActivity(new Intent(getApplicationContext(), HomeFragment.class));
-         //   finish();
-      //  }
-
         regUser.setOnClickListener(new View.OnClickListener() {
             @Override
 
@@ -77,14 +72,6 @@ public class RegisterScreen extends AppCompatActivity {
                    return;
                }
 
-
-              /*  if(radioGenderMale.isChecked()){
-                    gender = "ذكر";
-                    Toast.makeText(RegisterScreen.this, "", Toast.LENGTH_SHORT).show();
-                }else if(radioGenderFemale.isChecked()){
-                    gender = "انثى";
-                    Toast.makeText(RegisterScreen.this, "", Toast.LENGTH_SHORT).show();
-                }*/
 
 
                 if (password.equals("")) {
