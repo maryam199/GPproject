@@ -1,7 +1,6 @@
 package com.example.loginscreen;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -13,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,64 +23,99 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ClientOption extends AppCompatActivity implements View.OnClickListener {
-    Dialog myDialog;
-    Dialog secondDialog;
-    private EditText age, weight, height, lose, gain;
-    private ImageView img;
-    private Button button, button2;
+public class ClientOption extends AppCompatActivity {
 
-    DatabaseReference databaseR;
-    FirebaseDatabase firebaseD;//root
+   RadioButton radioLose, radioGain ;
+    private EditText age, weight, height, loseorgain;
+    private Button button;
+   DatabaseReference databaseR;
+   FirebaseDatabase firebaseD;
 
-    String losRgain = "";
-    String Num = "";
 
-    String Age, Weight, Height;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client_option);
 
-        img = findViewById(R.id.imageView34);
-        age = findViewById(R.id.editTextTextMultiLine2);
-        weight = findViewById(R.id.editTextTextMultiLine);
-        height = findViewById(R.id.editTextTextMultiLine3);
-        lose = findViewById(R.id.editTextTextPersonName);
-        gain = findViewById(R.id.editTextTextPersonName3);
-        button = findViewById(R.id.button10);//loose
-        button2 = findViewById(R.id.button7);
+
+       age = findViewById(R.id.editTextTextPassword2);
+      weight = findViewById(R.id.editTextTextPassword3);
+      height = findViewById(R.id.editTextTextPassword4);
+        loseorgain = findViewById(R.id.editTextTextPassword5);
+        radioLose = (RadioButton) findViewById(R.id.radioButton2);
+        radioGain = (RadioButton) findViewById(R.id.FradioButton1);
+
+        button = findViewById(R.id.button7);
+
+       firebaseD = FirebaseDatabase.getInstance();
+      databaseR = firebaseD.getInstance().getReference("User").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("information");
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                String Age = age.getText().toString().trim();
+                String Weight = weight.getText().toString().trim();
+                String Height = height.getText().toString().trim();
+                String Loseorgain = loseorgain.getText().toString().trim();
+                String losRgain;
 
-                firebaseD = FirebaseDatabase.getInstance();
-                databaseR = firebaseD.getReference("information");
+                if (Age.equals("")) {
+                    age.setError("الرجاء إدخال عمرك!");
+                    age.requestFocus();
+                    return;
+                }
 
-                //get all the values:age wiegt hight
+                if (Integer.parseInt(Age)<18) {
+                    age.setError("عفوا البرنامج مخصص لعمر 18 فما فوق!");
+                    age.requestFocus();
+                    return;
+                }
 
-                String Age = age.getText().toString();
-                String Weight = weight.getText().toString();
-                String Height = height.getText().toString();
+                if (Weight.equals("")) {
+                    weight.setError("الرجاء إدخال وزنك!");
+                    weight.requestFocus();
+                    return;
+                }
 
+                if (Height.equals("")) {
+                    height.setError("الرجاء إدخال طولك!");
+                    height.requestFocus();
+                    return;
+                }
 
-                Client client = new Client(Age, Weight, Height);
+                if(radioLose.isChecked()){
+                    losRgain = "انقاص الوزن";
+                    Toast.makeText(ClientOption.this, "", Toast.LENGTH_SHORT).show();
+                }else if(radioGain.isChecked()){
+                    losRgain = "زيادة الوزن";
+                    Toast.makeText(ClientOption.this, "", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(ClientOption.this, "الرجاء اختيار هدفك", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
-                //.child unique value
-                databaseR.child(String.valueOf(age)).setValue(client);
+                if (Loseorgain.equals("")) {
+                    loseorgain.setError("الرجاء إدخال الوزن الذي تريد انقاصه/زيادته !");
+                    loseorgain.requestFocus();
+                    return;
+                }
+
+                Client client = new Client(Age,Weight,Height,losRgain,Loseorgain);
+                databaseR.setValue(client);
+                openClientQuiz();
             }
         });
 
-        button.setOnClickListener(this);
 
-    }//end onCreate
+    }
 
-    @Override
-    public void onClick(View view) {
-
-        Intent intent = new Intent(ClientOption.this, ClientOptionWeightLoss.class);
+    public void openClientQuiz(){
+        Intent intent = new Intent(this, ClientQuiz.class);
         startActivity(intent);
     }
+
+
 }

@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.loginscreen">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:debuggable="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="nav"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LoginScreen"
-        tools:ignore="HardcodedDebugMode">
-        <activity android:name=".DieticianPS"></activity>
-        <activity android:name=".ClientOptionOverweight" />
+        android:theme="@style/Theme.LoginScreen">
+        <activity android:name=".ClientOptionOverweight"></activity>
         <activity android:name=".ClientOptionWeightLoss" />
         <activity android:name=".ActivityHomePage" />
         <activity android:name=".BarCode" />
         <activity android:name=".AlternativeDietPlanScreens" />
+
         <activity android:name=".ScanBarCodeScreen" />
         <activity android:name=".Attenttion" />
         <activity android:name=".QuizCompletion" />
