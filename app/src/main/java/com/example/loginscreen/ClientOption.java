@@ -57,7 +57,7 @@ public class ClientOption extends AppCompatActivity implements View.OnClickListe
            public void onClick(View view) {
 
                firebaseD = FirebaseDatabase.getInstance();
-               databaseR = firebaseD.getReference("information");
+               databaseR = firebaseD.getReference();
 
                //get all the values:age wiegt hight
 
@@ -69,7 +69,10 @@ public class ClientOption extends AppCompatActivity implements View.OnClickListe
                Client client = new Client(Age,Weight,Height);
 
                //.child unique value
-               databaseR.child(String.valueOf(age)).setValue(client);
+               databaseR.child("Age").setValue(Age);
+               databaseR.child("Weight").setValue(Weight);
+               databaseR.child("Height").setValue(Height);
+
            }
        });
 
@@ -193,4 +196,4 @@ startActivity(intent);
 
    // */
 
-}
+}//end class
