@@ -9,16 +9,17 @@
 
         <Button
             android:id="@+id/button7"
-            android:layout_width="247dp"
-            android:layout_height="53dp"
+            android:layout_width="172dp"
+            android:layout_height="54dp"
             android:text="التالي"
             android:textSize="18sp"
             app:backgroundTint="#F2009688"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.812" />
+            app:layout_constraintVertical_bias="0.821" />
 
         <TextView
             android:id="@+id/textView9"
@@ -179,10 +180,10 @@
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.441"
+            app:layout_constraintHorizontal_bias="0.882"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.617" />
+            app:layout_constraintVertical_bias="0.686" />
 
         <EditText
             android:id="@+id/editTextTextPassword2"
@@ -213,17 +214,17 @@
 
         <TextView
             android:id="@+id/textView17"
-            android:layout_width="123dp"
-            android:layout_height="49dp"
+            android:layout_width="236dp"
+            android:layout_height="35dp"
             android:text="ادخل الوزن الذي تريد انقاصه/زيادته:"
             android:textColor="#0C0C0C"
-            android:textSize="18sp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.907"
+            app:layout_constraintHorizontal_bias="0.908"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.611" />
+            app:layout_constraintVertical_bias="0.633" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
