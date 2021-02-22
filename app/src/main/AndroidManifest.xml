@@ -12,12 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
-        <activity android:name=".ClientOptionOverweight"></activity>
+        <activity android:name=".DieticianChatScreen"></activity>
+        <activity android:name=".ClientHomeScreen" />
+        <activity android:name=".ClientOptionOverweight" />
         <activity android:name=".ClientOptionWeightLoss" />
         <activity android:name=".ActivityHomePage" />
         <activity android:name=".BarCode" />
         <activity android:name=".AlternativeDietPlanScreens" />
-
         <activity android:name=".ScanBarCodeScreen" />
         <activity android:name=".Attenttion" />
         <activity android:name=".QuizCompletion" />
