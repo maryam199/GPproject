@@ -9,6 +9,6 @@ public class DisplyRecipScerrn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_disply_recip_scerrn);
+        setContentView(R.layout.nav_activity_recipes);
     }
 }

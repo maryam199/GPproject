@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.loginscreen">
 
     <uses-permission android:name="android.permission.CAMERA" />
@@ -7,16 +8,27 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="nav"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginScreen">
-        <activity android:name=".DieticianChatScreen"></activity>
+        <activity android:name=".activity_profile_dietitian"></activity>
+        <activity
+            android:name=".DrawerActivity"
+            android:label="@string/title_activity_drawer"
+            android:theme="@style/Theme.LoginScreen.NoActionBar" />
+        <activity android:name=".ProfileScreen" />
+        <activity android:name=".DieticianChatScreen" />
         <activity android:name=".ClientHomeScreen" />
         <activity android:name=".ClientOptionOverweight" />
         <activity android:name=".ClientOptionWeightLoss" />
         <activity android:name=".ActivityHomePage" />
+        <activity android:name=".CompleteDietPlanScreen2" />
+        <activity android:name=".EndOfDietPlanScreen" />
+        <activity android:name=".CompleteDietPlanScreen" />
+        <activity android:name=".AlternativeDietPlanCompletionScreen" />
         <activity android:name=".BarCode" />
         <activity android:name=".AlternativeDietPlanScreens" />
         <activity android:name=".ScanBarCodeScreen" />

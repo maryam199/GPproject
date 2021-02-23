@@ -15,7 +15,7 @@ public class ScanBarCodeScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scan_bar_code_screen);
+        setContentView(R.layout.nav_activity_scan_barcode);
 
         button = (Button) findViewById(R.id.button11);
         text = (TextView) findViewById(R.id.textView18);

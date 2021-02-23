@@ -72,6 +72,8 @@ public class MainActivity extends AppCompatActivity {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             if(user.isEmailVerified()){
                                 Toast.makeText(MainActivity.this, "تم تسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
+                                //المفروض احط if statment عشان اوجهة لواجهة الكلاينت او واجهة الدايتشن
+                                //if(mAuth)
                                 startActivity(new Intent(getApplicationContext(), ActivityHomePage.class));
                             }else{
                                 user.sendEmailVerification();
