@@ -25,35 +25,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.338" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
-        android:layout_width="67dp"
-        android:layout_height="736dp"
-        android:background="@drawable/side_toolbar"
-        app:layout_constraintBottom_toBottomOf="parent"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-    </androidx.appcompat.widget.Toolbar>
-
-    <ImageView
-        android:id="@+id/imageView30"
-        android:layout_width="65dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="600dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/toolbar2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/home2" />
-
     <ImageView
         android:id="@+id/imageView37"
         android:layout_width="60dp"
@@ -64,24 +35,8 @@
         android:layout_marginBottom="509dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/toolbar2"
         app:layout_constraintTop_toBottomOf="@+id/textView19"
         tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView38"
-        android:layout_width="57dp"
-        android:layout_height="92dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="220dp"
-        android:layout_marginBottom="700dp"
-        app:layout_constraintBottom_toTopOf="@+id/toolbar2"
-        app:layout_constraintEnd_toStartOf="@+id/toolbar2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/logout" />
 
     <ImageView
         android:id="@+id/imageView39"
@@ -94,7 +49,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/toolbar2"
         app:layout_constraintTop_toBottomOf="@+id/imageView37"
         app:layout_constraintVertical_bias="0.0"
         tools:srcCompat="@tools:sample/avatars" />
@@ -112,7 +66,6 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView37"
-        app:layout_constraintStart_toEndOf="@+id/toolbar2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -128,7 +81,6 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView39"
-        app:layout_constraintStart_toEndOf="@+id/toolbar2"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
     <View
@@ -140,7 +92,6 @@
         android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/textView21"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,155 +2,201 @@ package com.example.loginscreen;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-public class ActivityHomePage extends AppCompatActivity implements DrawerAdapter.OnItemSelectedListener{
+public class ActivityHomePage extends AppCompatActivity {
 
-    private static final int POS_CLOSE=0;
-    private static final int POS_HOME=1;
-    private static final int POS_PROFILE=2;
-    private static final int POS_COM_PLAN=3;
-    private static final int POS_ALT_PLAN=4;
-    private static final int POS_RECIPES=5;
-    private static final int POS_BARCODE=6;
-    private static final int POS_LOGOUT=7;
-
-    private String[] screenTitles;
-    private Drawable[] screenIcons;
-
-    private SlidingRootNav slidingRootNav;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.nav_activity_home_page);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mAuth = FirebaseAuth.getInstance();
 
-        slidingRootNav = new SlidingRootNavBuilder(this)
-                .withDragDistance(180)
-                .withRootViewScale(0.75f)
-                .withRootViewElevation(25)
-                .withToolbarMenuToggle(toolbar)
-                .withMenuOpened(false)
-                .withContentClickableWhenMenuOpened(false)
-                .withSavedState(savedInstanceState)
-                .withMenuLayout(R.layout.drawer_menu)
-                .inject();
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-        screenIcons = loadScreenIcons();
-        screenTitles = loadScreenTitles();
+                if(item.getItemId() == R.id.nav_home ){
+                    Toast.makeText(ActivityHomePage.this, "الرئسية" , Toast.LENGTH_SHORT);
+                    startActivity(new Intent(ActivityHomePage.this,  ActivityHomePage.class));
+                }
+                else if(item.getItemId() == R.id.nav_Profile ){
+                    Toast.makeText(ActivityHomePage.this, "الحساب الشخصي" , Toast.LENGTH_SHORT);
+                    startActivity(new Intent(ActivityHomePage.this,  ProfileScreen.class));
+                }
+                else if(item.getItemId() == R.id.nav_ComDietPlan ){
+                    Toast.makeText(ActivityHomePage.this, "الخطة الكاملة" , Toast.LENGTH_SHORT);
+                    startActivity(new Intent(ActivityHomePage.this,  CompleteDietPlanScreen.class));
+                }
+                else if(item.getItemId() == R.id.nav_AltDietPlan ){
+                    Toast.makeText(ActivityHomePage.this, "الخطة البديلة" , Toast.LENGTH_SHORT);
+                    startActivity(new Intent(ActivityHomePage.this,  AlternativeDietPlanScreens.class));
+                }
+                else if(item.getItemId() == R.id.nav_Recipes ){
+                    Toast.makeText(ActivityHomePage.this, "وصفات صحية" , Toast.LENGTH_SHORT);
+                    startActivity(new Intent(ActivityHomePage.this,  DisplyRecipScerrn.class));
+                }
+                else if(item.getItemId() == R.id.nav_ScanBarCode ){
+                    Toast.makeText(ActivityHomePage.this, "مسح الباركود" , Toast.LENGTH_SHORT);
+                    startActivity(new Intent(ActivityHomePage.this,  ScanBarCodeScreen.class));
+                }
+                else if(item.getItemId() == R.id.nav_logOut ){
+                    Toast.makeText(ActivityHomePage.this, "تسجيل الخروج" , Toast.LENGTH_SHORT);
+                    mAuth.signOut();
+                    finish();
+                }
 
-        DrawerAdapter adapter = new DrawerAdapter(Arrays.asList(
-                createItemFor(POS_CLOSE),
-                createItemFor(POS_HOME).setChecked(true),
-                createItemFor(POS_PROFILE),
-                createItemFor(POS_COM_PLAN),
-                createItemFor(POS_ALT_PLAN),
-                createItemFor(POS_RECIPES),
-                createItemFor(POS_BARCODE),
-                new SpaceItem(220),
-                createItemFor(POS_LOGOUT)
+                DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+                drawerLayout.closeDrawer(GravityCompat.START);
 
-        ));
+                return true;
+            }
+        });
+/*
+كل هالكود الي تحت تبع المنيو القديمة الي تحتاج كلاسات من نوع fragment وليس من نوع AppCompat
 
-        adapter.setListeners(this);
 
-        RecyclerView list = findViewById(R.id.drawer_list);
-        list.setNestedScrollingEnabled(false);
-        list.setLayoutManager(new LinearLayoutManager(this));
-        list.setAdapter(adapter);
+        sNavigationDrawer = findViewById(R.id.navigationDrawer);
 
-        adapter.setSelected(POS_HOME);
+        List<MenuItem> menuItems = new ArrayList<>();
 
-    }
+        menuItems.add(new MenuItem("الرئيسية", R.drawable.home2));
+        menuItems.add(new MenuItem("الحساب", R.drawable.profile));
+        menuItems.add(new MenuItem("الخطة الكاملة", R.drawable.complan));
+        menuItems.add(new MenuItem("الخطة البديلة", R.drawable.altplan));
+        menuItems.add(new MenuItem("وصفات صحية", R.drawable.recipes));
+        menuItems.add(new MenuItem("مسح الباركود", R.drawable.scan));
+        menuItems.add(new MenuItem("تسجيل الخروج", R.drawable.logout));
 
-    private DrawerItem createItemFor(int position){
-        return new SimpleItem(screenIcons[position],screenTitles[position]).
-                WithIconTint(color(R.color.green))
-                .WithTextTint(R.color.black)
-                .WithSelectedIconTint(R.color.green)
-                .WithSelectedTextTint(R.color.green);
-    }
+        sNavigationDrawer.setMenuItemList(menuItems);
 
-    @ColorInt
-    private int color(@ColorRes int res){
-        return ContextCompat.getColor(this, res);
-    }
+        fragmentClass = HomeFragment.class;
 
-    private String[] loadScreenTitles() {
-        return getResources().getStringArray(R.array.id_activityScreenTitles);
-    }
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
 
-    private Drawable[] loadScreenIcons() {
-        TypedArray ta = getResources().obtainTypedArray(R.array.id_activityScreenIcons);
-        Drawable[] icons = new Drawable[ta.length()];
-        for (int i=0 ; i< ta.length() ; i++){
-            int id = ta.getResourceId(i , 0);
-            if(id != 0){
-                icons[i] = ContextCompat.getDrawable(this,id);
+        if(fragment!=null){
+            FragmentManager fragmentManager = getSupportFragmentManager();
+
+            fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout,fragment).commit();
+        }
+
+
+        sNavigationDrawer.setOnMenuItemClickListener(new SNavigationDrawer.OnMenuItemClickListener() {
+            @Override
+            public void onMenuItemClicked(int position) {
+                System.out.println("Position "+position);
+
+                switch (position){
+                    case 0:{
+                        fragmentClass = HomeFragment.class;
+                        break;
+                    }
+                    case 1:{
+                        fragmentClass = ProfileFragment.class;
+                        break;
+                    }
+                    case 2:{
+                        fragmentClass = ComPlanFragment.class;
+                        break;
+                    }
+                    case 3:{
+                        fragmentClass = AlternativeDietPlanScreens.class;
+                        break;
+                    }
+                    case 4:{
+                        fragmentClass = RecipesFragment.class;
+                        break;
+                    }
+                    case 5:{
+                        fragmentClass = BarcodeFragment.class;
+                        break;
+                    }
+                    case 6:{
+                        finish();
+                    }
+
+                }
+
+
+
+        sNavigationDrawer.setDrawerListener(new SNavigationDrawer.DrawerListener() {
+            @Override
+            public void onDrawerOpening() {
 
             }
-        }
-        ta.recycle();
-        return icons;
+
+            @Override
+            public void onDrawerClosing() {
+                try {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                }
+
+                if(fragment!=null){
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+
+                    fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout,fragment).commit();
+                }
+
+            }
+
+            @Override
+            public void onDrawerOpened() {
+
+            }
+
+            @Override
+            public void onDrawerClosed() {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                System.out.println("State "+newState);
+            }
+        });
+
     }
-
-    @Override
-    public void onBackPressed() {
-        finish();
-    }
-
-    @Override
-    public void OnItemSelected(int position) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-        if( position == POS_HOME){
-            HomeFragment homeFragment = new HomeFragment();
-            transaction.replace(R.id.container , homeFragment);
-        }
-        else if( position == POS_PROFILE){
-            ProfileFragment profileFragment = new ProfileFragment();
-            transaction.replace(R.id.container , profileFragment);
-        }
-        else if( position == POS_COM_PLAN){
-            ComPlanFragment comPlanFragment = new ComPlanFragment();
-            transaction.replace(R.id.container , comPlanFragment);
-        }
-        else if( position == POS_ALT_PLAN){
-            AltPlanFragment altPlanFragment = new AltPlanFragment();
-            transaction.replace(R.id.container , altPlanFragment);
-        }
-        else if( position == POS_RECIPES){
-            RecipesFragment recipesFragment = new RecipesFragment();
-            transaction.replace(R.id.container , recipesFragment);
-        }
-        else if( position == POS_BARCODE){
-            BarcodeFragment barcodeFragment = new BarcodeFragment();
-            transaction.replace(R.id.container , barcodeFragment);
-        }
-        else if (position == POS_LOGOUT){
-            finish();
-        }
-
-        slidingRootNav.closeMenu();
-        transaction.addToBackStack(null);
-        transaction.commit();
+});*/
     }
 }
