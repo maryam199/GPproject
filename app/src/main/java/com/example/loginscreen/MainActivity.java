@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button, login;
     private EditText userEmail, passWord;
     FirebaseAuth mAuth;
+    String type ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // authenticate the user
 
+               // type = FirebaseAuth.getInstance().getCurrentUser().gettype();
+
                 mAuth.signInWithEmailAndPassword(Email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                             if(user.isEmailVerified()){
                                 Toast.makeText(MainActivity.this, "تم تسجيل الدخول بنجاح", Toast.LENGTH_SHORT).show();
-                                //المفروض احط if statment عشان اوجهة لواجهة الكلاينت او واجهة الدايتشن
+                                //المفروض احط if statment عشان اوجهة لواجهة الكلاينت او لواجهة الدايتشن
                                 //if(mAuth)
                                 startActivity(new Intent(getApplicationContext(), ActivityHomePage.class));
                             }else{

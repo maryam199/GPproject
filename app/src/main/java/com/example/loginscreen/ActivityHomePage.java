@@ -40,7 +40,7 @@ public class ActivityHomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.nav_activity_home_page);
 
-        FirebaseAuth auth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
